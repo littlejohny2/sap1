@@ -38,10 +38,10 @@
     ],
     "Lua.runtime.pathStrict": true,
     "Lua.workspace.library": [
-        "c:/Users/Ty/Documents/coding/lua/stormworks/new/",
+        "c:/Users/Ty/Documents/coding/lua/stormworks/sap1/",
         "c:/Users/Ty/.vscode/extensions/nameouschangey.lifeboatapi-0.0.33/assets/lua/Common/",
         "c:/Users/Ty/.vscode/extensions/nameouschangey.lifeboatapi-0.0.33/assets/lua/Microcontroller/",
-        "c:/Users/Ty/Documents/coding/lua/stormworks/new/_build/libs/"
+        "c:/Users/Ty/Documents/coding/lua/stormworks/sap1/_build/libs/"
     ],
     "lifeboatapi.stormworks.libs.gitLibraries": [
         {

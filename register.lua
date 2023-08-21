@@ -17,20 +17,32 @@
 -- try require("Folder.Filename") to include code from another file in this, so you can store code in libraries
 -- the "LifeBoatAPI" is included by default in /_build/libs/ - you can use require("LifeBoatAPI") to get this, and use all the LifeBoatAPI.<functions>!
 
-ram = {}
-for address = 0, 15 do
-    ram[address] = 0
-end
+programCounter = 0
+instructionRegister = 0
 
 outputWord = 0
 function onTick()
     clockPulse = input.getBool(1)
     controlWord = input.getNumber(2)
-    addressInput = input.getNumber(3)
+    ramInput = input.getNumber(3)
 
-    if clockPulse == true and controlWord == 3 then
+    if clockPulse == true then
 
-        outputWord = ram[addressInput]
+        if controlWord == 1 then
+            programCounter = programCounter+1
+            if programCounter > 15 then
+                programCounter = 0
+            end
+        end
+        if controlWord == 2 then
+            outputWord = programCounter
+        end
+        if controlWord == 4 then
+            instructionRegister = ramInput
+        end
+        if controlWord == 5 then
+            outputWord = instructionRegister
+        end
 
     end
 
