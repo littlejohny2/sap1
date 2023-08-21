@@ -19,6 +19,7 @@
 
 programCounter = 0
 instructionRegister = 0
+accumulator = 0
 
 outputWord = 0
 function onTick()
@@ -42,6 +43,9 @@ function onTick()
         end
         if controlWord == 5 then
             outputWord = instructionRegister
+        end
+        if controlWord == 7 then
+            accumulator = ramInput
         end
 
     end
