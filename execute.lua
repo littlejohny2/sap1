@@ -44,7 +44,7 @@ function onTick()
         if tState == 6 then
             opcode = input.getNumber(3)
         end
-        if tState >= 7 then
+        if tState > 6 and tState < 10 then
 
             if opcode == 0 then
                 tState = 0
@@ -56,8 +56,15 @@ function onTick()
         end
         if tState == 10 then
 
-            if opcode == 1 then
-                controlWord = 7
+            if opcode >= 1 and opcode <= 4 then
+                controlWord = 6 + opcode
+            end
+
+        end
+        if tState > 10 then
+
+            if opcode < 5 then
+                tState = 0
             end
 
         end

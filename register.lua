@@ -19,7 +19,12 @@
 
 programCounter = 0
 instructionRegister = 0
-accumulator = 0
+
+register = {}
+for letter = 1, 4 do
+    register[letter] = 0
+end
+
 
 outputWord = 0
 function onTick()
@@ -44,11 +49,14 @@ function onTick()
         if controlWord == 5 then
             outputWord = instructionRegister
         end
-        if controlWord == 7 then
-            accumulator = ramInput
+        if controlWord >= 7 and controlWord <= 10 then
+            register[controlWord - 6] = ramInput
         end
 
     end
 
     output.setNumber(1, outputWord)
+
+    -- debug --
+    output.setNumber(2, register[1])
 end

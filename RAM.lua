@@ -21,6 +21,9 @@ ram = {}
 for address = 0, 15 do
     ram[address] = 0
 end
+ram[1] = 1      -- MOV regA, 0xF
+ram[2] = 15
+ram[3] = 0      -- NOP
 
 outputWord = 0
 function onTick()
