@@ -36,7 +36,7 @@ function onTick()
 
         if controlWord == 1 then
             programCounter = programCounter+1
-            if programCounter > 15 then
+            if programCounter > 16384 then
                 programCounter = 0
             end
         end
@@ -52,6 +52,24 @@ function onTick()
         if controlWord >= 7 and controlWord <= 10 then
             register[controlWord - 6] = ramInput
         end
+        if controlWord >= 11 and controlWord <= 13 then
+            register[controlWord - 9] = register[1]
+        end
+        if controlWord == 14 then
+            register[1] = register[2]
+        end
+        if controlWord == 15 or controlWord == 16 then
+            register[controlWord - 12] = register[2]
+        end
+        if controlWord == 17 or controlWord == 18 then
+            register[controlWord - 16] = register[3]
+        end
+        if controlWord == 19 then
+            register[4] = register[3]
+        end
+        if controlWord >= 20 and controlWord <= 22 then
+            register[controlWord - 19] = register[4]
+        end
 
     end
 
@@ -59,4 +77,9 @@ function onTick()
 
     -- debug --
     output.setNumber(2, register[1])
+    output.setNumber(3, register[2])
+    output.setNumber(4, register[3])
+    output.setNumber(5, register[4])
+    output.setNumber(6, instructionRegister)
+    output.setNumber(7, programCounter)
 end

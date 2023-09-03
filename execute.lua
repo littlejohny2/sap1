@@ -49,8 +49,22 @@ function onTick()
             if opcode == 0 then
                 tState = 0
             end
-            if opcode == 1 then
+            if opcode >= 1 and opcode <= 4 then
                 controlWord = tState - 6
+            end
+
+        end
+        if tState == 7 then
+
+            if opcode >= 5 and opcode <= 16 then
+                controlWord = opcode + 6
+            end
+
+        end
+        if tState > 7 then
+
+            if opcode >= 5 and opcode <= 16 then
+                tState = 0
             end
 
         end

@@ -18,12 +18,15 @@
 -- the "LifeBoatAPI" is included by default in /_build/libs/ - you can use require("LifeBoatAPI") to get this, and use all the LifeBoatAPI.<functions>!
 
 ram = {}
-for address = 0, 15 do
+for address = 0, 16384 do
     ram[address] = 0
 end
-ram[1] = 1      -- MOV regA, 0xF
-ram[2] = 15
-ram[3] = 0      -- NOP
+ram[1] = 4      -- MOV regD, 0xFF
+ram[2] = 255
+ram[3] = 14     -- MOV regA, regD
+ram[4] = 15     -- MOV regB, regD
+ram[5] = 16     -- MOV regC, regD
+
 
 outputWord = 0
 function onTick()
